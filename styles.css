@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.toilet {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.toilet-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: #00bfff;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#message {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+@keyframes flush {
+    0% { transform: rotate(0deg) scale(1); }
+    20% { transform: rotate(-5deg) scale(1.05); }
+    40% { transform: rotate(5deg) scale(1.1); }
+    60% { transform: rotate(-3deg) scale(1.05); }
+    80% { transform: rotate(3deg) scale(1.02); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+.isaac-profile {
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #1e90ff;
+    transition: all 0.3s ease;
+}
+
+.profile-pic.humiliated {
+    transform: rotate(360deg) scale(0.8);
+    filter: grayscale(100%) sepia(50%);
+}
+
+.liquid-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.liquid-drop {
+    position: absolute;
+    border-radius: 50%;
+    animation: liquidFall 1.5s linear forwards;
+}
+
+.pee-drop {
+    background: rgba(255, 255, 0, 0.6);
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.4);
+}
+
+.spit-drop {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes liquidFall {
+    0% {
+        transform: translateY(-20px) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(140px) scale(0.3);
+        opacity: 0;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#spitBtn {
+    background: #ff4757;
+}
+
+#humiliateBtn {
+    background: #8e44ad;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+@keyframes humiliate {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+.creator-credit {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: bold;
+}
+
+.spit-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.spit-particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: spitFall 1s linear forwards;
+}
+
+@keyframes spitFall {
+    0% {
+        transform: translateY(-50px) scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100px) scale(0.1);
+        opacity: 0;
+    }
+}
+
+.water.flushing {
+    animation: waterWave 1.2s ease-in-out;
+}
+
+@keyframes waterWave {
+    0%! { transform: translateY(0) scaleX(1); }
+    25% { transform: translateY(-10px) scaleX(1.1); }
+    50% { transform: translateY(5px) scaleX(0.9); }
+    75% { transform: translateY(-5px) scaleX(1.05); }
+    100% { transform: translateY(0) scaleX(1); }
+}
+
+.penis-svg {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 120px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.show-penis {
+    opacity: 1;
+}
